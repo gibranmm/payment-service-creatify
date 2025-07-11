@@ -10,7 +10,7 @@ const snap = new midtransClient.Snap({
 });
 
 // Endpoint untuk membuat transaksi pembayaran
-router.post('/', async (req, res) => {
+router.post('/payments', async (req, res) => {
     const parameter = {
         transaction_details: {
             order_id: req.body.order_id,
@@ -29,5 +29,10 @@ router.post('/', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+app.get('/', (req, res) => {
+  res.send('Payment Service running successfully');
+});
+
 
 module.exports = router;
