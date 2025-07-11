@@ -9,6 +9,11 @@ const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+  res.send('Payment Service running successfully');
+});
+
 app.use('/payments', paymentRoutes);
 
 app.listen(PORT, () => {
